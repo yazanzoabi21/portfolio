@@ -1,0 +1,307 @@
+<!-- Projects Section -->
+<section id="projects"
+    class="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center transition-colors py-20">
+    <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
+                <div class="w-24 h-1 bg-blue-600 dark:bg-blue-400 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    A showcase of my development projects and technical expertise
+                </p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
+                <!-- Project 1: AI-Powered Email Summarization & Auto-Reply System -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer transform hover:scale-105"
+                    onclick="window.open('https://github.com/yazanzoabi21/email_summarization', '_blank')">
+                    <div class="relative">
+                        <div
+                            class="w-full h-44 md:h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                            <i
+                                class="fas fa-robot text-white text-3xl md:text-4xl group-hover:scale-110 transition-transform duration-300"></i>
+                            <!-- Overlay on hover -->
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                                <span
+                                    class="text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm md:text-base">
+                                    <i class="fas fa-external-link-alt mr-2"></i>View Project
+                                </span>
+                            </div>
+                        </div>
+                        <div class="absolute top-3 right-3 bg-white dark:bg-gray-800 rounded-full p-1.5 shadow-lg">
+                            <i class="fas fa-external-link-alt text-gray-600 dark:text-gray-300 text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                            AI-Powered Email Summarization
+                            & Auto-Reply System</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm md:text-base">
+                            <span [class.line-clamp-3]="!project1Expanded">
+                                A full-stack AI system for email management with automatic summarization and reply
+                                generation.
+                                Features AI-based summaries using BART CNN Large and intelligent auto-reply
+                                functionality. This comprehensive system allows users to efficiently manage their email
+                                workflow by automatically generating concise summaries of incoming emails and creating
+                                contextually appropriate replies based on the content and tone of the original messages.
+                            </span>
+                            <button
+                                class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors text-xs md:text-sm font-medium ml-1"
+                                (click)="toggleProject1(); $event.stopPropagation()">
+                                {{project1Expanded ? 'Read Less' : 'Read More'}}
+                            </button>
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 md:gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-xs md:text-sm">Angular</span>
+                            <span
+                                class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 rounded-full text-xs md:text-sm">Python</span>
+                            <span
+                                class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-xs md:text-sm">FastAPI</span>
+                            <span
+                                class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-300 rounded-full text-xs md:text-sm">PostgreSQL</span>
+                            <span
+                                class="px-2 py-1 bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-300 rounded-full text-xs md:text-sm">BART
+                                CNN</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                            <a href="https://github.com/yazanzoabi21/email_summarization" target="_blank"
+                                class="flex items-center justify-center sm:justify-start space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors text-sm md:text-base"
+                                onclick="event.stopPropagation()">
+                                <i class="fab fa-github"></i>
+                                <span>Frontend</span>
+                            </a>
+                            <a href="https://github.com/yazanzoabi21/Email-Summarization-FastAPI" target="_blank"
+                                class="flex items-center justify-center sm:justify-start space-x-2 text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 transition-colors text-sm md:text-base"
+                                onclick="event.stopPropagation()">
+                                <i class="fab fa-github"></i>
+                                <span>Backend</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Telepaty - Notification Center -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer transform hover:scale-105"
+                    onclick="window.open('http://vnc.myviva.net', '_blank')">
+                    <div class="relative">
+                        <div
+                            class="w-full h-44 md:h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
+                            <i
+                                class="fas fa-bell text-white text-3xl md:text-4xl group-hover:scale-110 transition-transform duration-300"></i>
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                                <span
+                                    class="text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm md:text-base">
+                                    <i class="fas fa-external-link-alt mr-2"></i>View Project
+                                </span>
+                            </div>
+                        </div>
+                        <div class="absolute top-3 right-3 bg-white dark:bg-gray-800 rounded-full p-1.5 shadow-lg">
+                            <i class="fas fa-external-link-alt text-gray-600 dark:text-gray-300 text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                            Telepaty - Notification Center
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm md:text-base">
+                            <span [class.line-clamp-3]="!project2Expanded">
+                                Cross-platform notification center for WhatsApp, VIVA, email, and SMS on Android/iPhone.
+                                Features admin interface for order tracking and real-time notifications with responsive
+                                UI. The system provides a unified dashboard for managing multiple communication
+                                channels, allowing administrators to monitor and track customer orders across different
+                                platforms while ensuring real-time delivery of notifications to users on both Android
+                                and iOS devices.
+                            </span>
+                            <button
+                                class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors text-xs md:text-sm font-medium ml-1"
+                                (click)="toggleProject2(); $event.stopPropagation()">
+                                {{project2Expanded ? 'Read Less' : 'Read More'}}
+                            </button>
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 md:gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-xs md:text-sm">Angular</span>
+                            <span
+                                class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 rounded-full text-xs md:text-sm">TypeScript</span>
+                            <span
+                                class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-xs md:text-sm">REST
+                                API</span>
+                            <span
+                                class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-300 rounded-full text-xs md:text-sm">Real-time</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                            <a href="http://vnc.myviva.net" target="_blank"
+                                class="flex items-center justify-center sm:justify-start space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors text-sm md:text-base"
+                                onclick="event.stopPropagation()">
+                                <i class="fas fa-globe"></i>
+                                <span>Live Demo</span>
+                            </a>
+                            <a href="http://vnc.myviva.net" target="_blank"
+                                class="flex items-center justify-center sm:justify-start space-x-2 text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors text-sm md:text-base"
+                                onclick="event.stopPropagation()">
+                                <i class="fas fa-lock"></i>
+                                <span>Private Repo</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Ministry of Finance Management System -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer transform hover:scale-105"
+                    onclick="window.open('http://vfc.myviva.net', '_blank')">
+                    <div class="relative">
+                        <div
+                            class="w-full h-44 md:h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center relative overflow-hidden">
+                            <i
+                                class="fas fa-building text-white text-3xl md:text-4xl group-hover:scale-110 transition-transform duration-300"></i>
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                                <span
+                                    class="text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm md:text-base">
+                                    <i class="fas fa-external-link-alt mr-2"></i>View Project
+                                </span>
+                            </div>
+                        </div>
+                        <div class="absolute top-3 right-3 bg-white dark:bg-gray-800 rounded-full p-1.5 shadow-lg">
+                            <i class="fas fa-external-link-alt text-gray-600 dark:text-gray-300 text-sm"></i>
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                            Ministry of Finance Management
+                            System</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm md:text-base">
+                            <span [class.line-clamp-3]="!project3Expanded">
+                                Full-stack web application for Ministry of Finance of Congo. Features contractor
+                                management,
+                                real-time transaction tracking, TVA calculations, and POS device monitoring with
+                                PostgreSQL
+                                backend. The application provides comprehensive financial oversight capabilities,
+                                enabling government officials to track contractor payments, monitor VAT calculations,
+                                and integrate with Point of Sale systems for real-time transaction processing and
+                                reporting.
+                            </span>
+                            <button
+                                class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors text-xs md:text-sm font-medium ml-1"
+                                (click)="toggleProject3(); $event.stopPropagation()">
+                                {{project3Expanded ? 'Read Less' : 'Read More'}}
+                            </button>
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 md:gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-xs md:text-sm">Angular</span>
+                            <span
+                                class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 rounded-full text-xs md:text-sm">Spring
+                                Boot</span>
+                            <span
+                                class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-xs md:text-sm">PostgreSQL</span>
+                            <span
+                                class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-300 rounded-full text-xs md:text-sm">Real-time</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                            <a href="http://vfc.myviva.net" target="_blank"
+                                class="flex items-center justify-center sm:justify-start space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors text-sm md:text-base"
+                                onclick="event.stopPropagation()">
+                                <i class="fas fa-globe"></i>
+                                <span>Live Demo</span>
+                            </a>
+                            <a href="http://vfc.myviva.net" target="_blank"
+                                class="flex items-center justify-center sm:justify-start space-x-2 text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors text-sm md:text-base"
+                                onclick="event.stopPropagation()">
+                                <i class="fas fa-lock"></i>
+                                <span>Private Repo</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Multi-Service Flutter App -->
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer opacity-70 hover:opacity-85 transform hover:scale-105"
+                    onclick="window.open('https://github.com/yazanzoabi21', '_blank')">
+                    <div class="relative">
+                        <div
+                            class="w-full h-44 md:h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center relative overflow-hidden">
+                            <i
+                                class="fab fa-flutter text-white text-3xl md:text-4xl group-hover:scale-110 transition-transform duration-300"></i>
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                                <span
+                                    class="text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm md:text-base">
+                                    <i class="fas fa-external-link-alt mr-2"></i>View Project
+                                </span>
+                            </div>
+                        </div>
+                        <div class="absolute top-3 right-3 bg-white dark:bg-gray-800 rounded-full p-1.5 shadow-lg">
+                            <i class="fas fa-external-link-alt text-gray-600 dark:text-gray-300 text-sm"></i>
+                        </div>
+                        <div
+                            class="absolute top-3 left-3 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-medium">
+                            Coming Soon
+                        </div>
+                    </div>
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                            Multi-Service Flutter App</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm md:text-base">
+                            <span [class.line-clamp-3]="!project4Expanded">
+                                Comprehensive Flutter application featuring multiple service categories (e.g., meals,
+                                gym,
+                                supermarket).
+                                Includes admin account management, online payments, subscriptions, and product
+                                management
+                                across different services. The app serves as a unified platform where users can discover
+                                and subscribe to various local services, make secure payments, and manage their
+                                subscriptions while administrators can oversee accounts, add new products, and track
+                                user engagement across all service categories.
+                            </span>
+                            <button
+                                class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors text-xs md:text-sm font-medium ml-1"
+                                (click)="toggleProject4(); $event.stopPropagation()">
+                                {{project4Expanded ? 'Read Less' : 'Read More'}}
+                            </button>
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 md:gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-xs md:text-sm">Flutter</span>
+                            <span
+                                class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 rounded-full text-xs md:text-sm">Dart</span>
+                            <span
+                                class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-xs md:text-sm">Mobile
+                                App</span>
+                            <span
+                                class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-300 rounded-full text-xs md:text-sm">Payment
+                                Integration</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                            <a href="https://github.com/yazanzoabi21/yalla_qr" target="_blank"
+                                class="flex items-center justify-center sm:justify-start space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors text-sm md:text-base"
+                                onclick="event.stopPropagation()">
+                                <i class="fab fa-github"></i>
+                                <span>Code</span>
+                            </a>
+                            <span
+                                class="flex items-center justify-center sm:justify-start space-x-2 text-gray-500 dark:text-gray-400 text-sm md:text-base">
+                                <i class="fas fa-clock"></i>
+                                <span>In Development</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View More Projects -->
+            <div class="text-center mt-16">
+                <a href="https://github.com/yazanzoabi21" target="_blank"
+                    class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg hover:shadow-xl inline-flex items-center">
+                    <i class="fab fa-github mr-2"></i>
+                    View More on GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
