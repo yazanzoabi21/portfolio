@@ -5,7 +5,7 @@
         <div class="flex justify-between items-center h-16">
             <!-- Logo -->
             <div class="flex-shrink-0">
-                <a (click)="scrollToSection('hero')"
+                <a (click)="scrollToSection('home')"
                     class="text-2xl font-bold text-gray-900 dark:text-white cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                     YZ | Developer
                 </a>
@@ -14,29 +14,16 @@
             <!-- Desktop Navigation Links -->
             <div class="hidden md:flex items-center space-x-8">
                 <div class="flex items-baseline space-x-8">
-                    <a (click)="scrollToSection('hero')"
-                        class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium cursor-pointer transition-colors">
-                        Home
-                    </a>
-                    <a (click)="scrollToSection('about')"
-                        class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium cursor-pointer transition-colors">
-                        About
-                    </a>
-                    <a (click)="scrollToSection('skills')"
-                        class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium cursor-pointer transition-colors">
-                        Skills
-                    </a>
-                    <a (click)="scrollToSection('projects')"
-                        class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium cursor-pointer transition-colors">
-                        Projects
-                    </a>
-                    <a (click)="scrollToSection('contact')"
-                        class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 text-sm font-medium cursor-pointer transition-colors">
-                        Contact
+                    <a *ngFor="let section of ['home', 'about', 'skills', 'projects', 'contact']"
+                        (click)="onNavClick(section)" [ngClass]="{
+                            'text-blue-600 dark:text-blue-400 font-semibold': activeSection === section,
+                            'text-gray-700 dark:text-gray-300': activeSection !== section
+                            }" class="px-3 py-2 text-sm font-medium cursor-pointer transition-colors duration-300">
+                        {{ section.charAt(0).toUpperCase() + section.slice(1) }}
                     </a>
                 </div>
 
-                <!-- Dark Mode Toggle -->
+                <!-- Desktop Dark Mode Toggle -->
                 <button (click)="toggleDarkMode()"
                     class="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                     [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'">
@@ -87,38 +74,20 @@
             </button>
         </div>
 
-        <!-- Sidebar Navigation -->
         <nav class="mt-6">
             <div class="px-4 space-y-2">
-                <a (click)="scrollToSection('hero')"
-                    class="flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800 rounded-lg cursor-pointer transition-colors group">
-                    <i
-                        class="fas fa-home mr-3 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400"></i>
-                    Home
-                </a>
-                <a (click)="scrollToSection('about')"
-                    class="flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800 rounded-lg cursor-pointer transition-colors group">
-                    <i
-                        class="fas fa-user mr-3 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400"></i>
-                    About
-                </a>
-                <a (click)="scrollToSection('skills')"
-                    class="flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800 rounded-lg cursor-pointer transition-colors group">
-                    <i
-                        class="fas fa-code mr-3 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400"></i>
-                    Skills
-                </a>
-                <a (click)="scrollToSection('projects')"
-                    class="flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800 rounded-lg cursor-pointer transition-colors group">
-                    <i
-                        class="fas fa-briefcase mr-3 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400"></i>
-                    Projects
-                </a>
-                <a (click)="scrollToSection('contact')"
-                    class="flex items-center px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800 rounded-lg cursor-pointer transition-colors group">
-                    <i
-                        class="fas fa-envelope mr-3 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400"></i>
-                    Contact
+                <a *ngFor="let section of ['home', 'about', 'skills', 'projects', 'contact']"
+                    (click)="scrollToSection(section)" [ngClass]="{
+                    'text-blue-600 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-gray-800':
+                        activeSection === section,
+                    'text-gray-700 dark:text-gray-300': activeSection !== section
+                    }"
+                    class="flex items-center px-4 py-3 rounded-lg cursor-pointer transition-colors duration-300 group">
+                    <i class="fas fa-circle mr-3 text-xs" [ngClass]="{
+                        'text-blue-600 dark:text-blue-400': activeSection === section,
+                        'text-gray-500 dark:text-gray-400': activeSection !== section}">
+                    </i>
+                    {{ section.charAt(0).toUpperCase() + section.slice(1) }}
                 </a>
             </div>
         </nav>

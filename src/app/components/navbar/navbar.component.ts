@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, EventEmitter, Output, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../services/theme.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,11 +11,17 @@ import { Subscription } from 'rxjs';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnInit, OnDestroy {
+  @Output() navigateTo = new EventEmitter<string>();
+  
   isSidebarOpen = false;
+  
   isDarkMode = false;
+
+  activeSection: string = 'home';
+
   private themeSubscription: Subscription = new Subscription();
 
-  constructor(private themeService: ThemeService) {}
+  constructor(private themeService: ThemeService, private router: Router) {}
 
   ngOnInit() {
     this.themeSubscription = this.themeService.darkMode$.subscribe(
@@ -43,6 +50,26 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       this.closeSidebar();
+    }
+  }
+
+  onNavClick(section: string) {
+    this.navigateTo.emit(section);
+    this.closeSidebar();
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          this.activeSection = section;
+          break;
+        }
+      }
     }
   }
 }

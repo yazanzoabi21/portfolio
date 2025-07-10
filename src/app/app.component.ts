@@ -10,4 +10,11 @@ import { HomeComponent } from "./components/home/home.component";
 })
 export class AppComponent {
   title = 'Portfolio';
+
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }

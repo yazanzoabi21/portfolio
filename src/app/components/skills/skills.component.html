@@ -4,7 +4,7 @@
     <div class="container mx-auto px-4">
         <div class="max-w-6xl mx-auto">
             <!-- Section Header -->
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" appScrollAnimation animationType="fadeInUp" [animationDelay]="100">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Skills & Expertise</h2>
                 <div class="w-24 h-1 bg-blue-600 dark:bg-blue-400 mx-auto mb-8"></div>
                 <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -15,7 +15,8 @@
             <!-- Skills Grid -->
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Frontend Development -->
-                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                    appScrollAnimation animationType="fadeInLeft" [animationDelay]="200">
                     <div class="text-center mb-6">
                         <div
                             class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -39,6 +40,14 @@
                                 <span class="text-gray-700 dark:text-gray-300">React.js</span>
                             </div>
                             <div class="text-sm text-blue-600 dark:text-blue-400 font-medium">Intermediate</div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <i class="fab fa-flutter text-cyan-500 text-lg"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Flutter</span>
+                            </div>
+                            <div class="text-sm text-blue-600 dark:text-blue-400 font-medium">Beginner</div>
                         </div>
 
                         <div class="flex items-center justify-between">
@@ -68,7 +77,8 @@
                 </div>
 
                 <!-- Backend Development -->
-                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                    appScrollAnimation animationType="fadeInUp" [animationDelay]="300">
                     <div class="text-center mb-6">
                         <div
                             class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -121,7 +131,8 @@
                 </div>
 
                 <!-- Database & Tools -->
-                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                    appScrollAnimation animationType="fadeInRight" [animationDelay]="400">
                     <div class="text-center mb-6">
                         <div
                             class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -161,6 +172,14 @@
                                 <span class="text-gray-700 dark:text-gray-300">FastAPI</span>
                             </div>
                             <div class="text-sm text-purple-600 dark:text-purple-400 font-medium">Intermediate</div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-database text-green-400 text-lg"></i>
+                                <span class="text-gray-700 dark:text-gray-300">Supabase</span>
+                            </div>
+                            <div class="text-sm text-purple-600 dark:text-purple-400 font-medium">Beginner</div>
                         </div>
                     </div>
                 </div>

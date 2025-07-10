@@ -1,6 +1,19 @@
-<!-- Main Portfolio Content -->
-<app-hero></app-hero>
-<app-about></app-about>
-<app-skills></app-skills>
-<app-projects></app-projects>
-<app-contact></app-contact>
+<section appScrollAnimation animationType="fadeIn" [animationDelay]="0" [repeatAnimation]="true" [resetOnExit]="false">
+    <app-hero id="home"></app-hero>
+</section>
+
+<section appScrollAnimation animationType="fadeInUp" [animationDelay]="100" [repeatAnimation]="true">
+    <app-about id="about"></app-about>
+</section>
+
+<section appScrollAnimation animationType="fadeInLeft" [animationDelay]="200" [repeatAnimation]="true">
+    <app-skills id="skills"></app-skills>
+</section>
+
+<section appScrollAnimation animationType="fadeInRight" [animationDelay]="300" [repeatAnimation]="true">
+    <app-projects id="projects"></app-projects>
+</section>
+
+<section appScrollAnimation animationType="fadeInUp" [animationDelay]="400" [repeatAnimation]="true">
+    <app-contact id="contact"></app-contact>
+</section>

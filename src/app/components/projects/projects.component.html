@@ -4,7 +4,7 @@
     <div class="container mx-auto px-4">
         <div class="max-w-6xl mx-auto">
             <!-- Section Header -->
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" appScrollAnimation animationType="fadeInUp" [animationDelay]="100">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
                 <div class="w-24 h-1 bg-blue-600 dark:bg-blue-400 mx-auto mb-8"></div>
                 <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -16,7 +16,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8">
                 <!-- Project 1: AI-Powered Email Summarization & Auto-Reply System -->
                 <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer transform hover:scale-105"
-                    onclick="window.open('https://github.com/yazanzoabi21/email_summarization', '_blank')">
+                    onclick="window.open('https://github.com/yazanzoabi21/email_summarization', '_blank')"
+                    appScrollAnimation animationType="fadeInLeft" [animationDelay]="200">
                     <div class="relative">
                         <div
                             class="w-full h-44 md:h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
@@ -86,7 +87,8 @@
 
                 <!-- Project 2: Telepaty - Notification Center -->
                 <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer transform hover:scale-105"
-                    onclick="window.open('http://vnc.myviva.net', '_blank')">
+                    onclick="window.open('http://vnc.myviva.net', '_blank')" appScrollAnimation animationType="fadeInUp"
+                    [animationDelay]="300">
                     <div class="relative">
                         <div
                             class="w-full h-44 md:h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
@@ -153,7 +155,8 @@
 
                 <!-- Project 3: Ministry of Finance Management System -->
                 <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer transform hover:scale-105"
-                    onclick="window.open('http://vfc.myviva.net', '_blank')">
+                    onclick="window.open('http://vfc.myviva.net', '_blank')" appScrollAnimation
+                    animationType="fadeInRight" [animationDelay]="400">
                     <div class="relative">
                         <div
                             class="w-full h-44 md:h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center relative overflow-hidden">
@@ -221,23 +224,22 @@
                 </div>
 
                 <!-- Project 4: Multi-Service Flutter App -->
-                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer opacity-70 hover:opacity-85 transform hover:scale-105"
-                    onclick="window.open('https://github.com/yazanzoabi21', '_blank')">
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg transition-all duration-300 overflow-hidden group cursor-not-allowed opacity-70"
+                    appScrollAnimation animationType="fadeInUp" [animationDelay]="500">
                     <div class="relative">
                         <div
                             class="w-full h-44 md:h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center relative overflow-hidden">
-                            <i
-                                class="fab fa-flutter text-white text-3xl md:text-4xl group-hover:scale-110 transition-transform duration-300"></i>
-                            <div
-                                class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <i class="fab fa-flutter text-white text-3xl md:text-4xl"></i>
+                            <div class="absolute inset-0 bg-black bg-opacity-0 flex items-center justify-center">
                                 <span
-                                    class="text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm md:text-base">
-                                    <i class="fas fa-external-link-alt mr-2"></i>View Project
+                                    class="text-white font-medium opacity-0 transition-opacity duration-300 text-sm md:text-base">
+                                    <i class="fas fa-hourglass-half mr-2"></i>Coming Soon
                                 </span>
                             </div>
                         </div>
                         <div class="absolute top-3 right-3 bg-white dark:bg-gray-800 rounded-full p-1.5 shadow-lg">
-                            <i class="fas fa-external-link-alt text-gray-600 dark:text-gray-300 text-sm"></i>
+                            <!-- <i class="fas fa-external-link-alt text-gray-600 dark:text-gray-300 text-sm"></i> -->
+                            <i class="fas fa-hourglass-half text-gray-600 dark:text-gray-300 text-sm"></i>
                         </div>
                         <div
                             class="absolute top-3 left-3 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-medium">
@@ -246,7 +248,8 @@
                     </div>
                     <div class="p-4 md:p-6">
                         <h3 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
-                            Multi-Service Flutter App</h3>
+                            Multi-Service Flutter App
+                        </h3>
                         <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm md:text-base">
                             <span [class.line-clamp-3]="!project4Expanded">
                                 Comprehensive Flutter application featuring multiple service categories (e.g., meals,
@@ -271,19 +274,20 @@
                             <span
                                 class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 rounded-full text-xs md:text-sm">Dart</span>
                             <span
-                                class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-xs md:text-sm">Mobile
-                                App</span>
+                                class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full text-xs md:text-sm">
+                                Mobile App
+                            </span>
                             <span
-                                class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-300 rounded-full text-xs md:text-sm">Payment
-                                Integration</span>
+                                class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-300 rounded-full text-xs md:text-sm">
+                                Payment Integration
+                            </span>
                         </div>
                         <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                            <a href="https://github.com/yazanzoabi21/yalla_qr" target="_blank"
-                                class="flex items-center justify-center sm:justify-start space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors text-sm md:text-base"
-                                onclick="event.stopPropagation()">
+                            <span
+                                class="flex items-center justify-center sm:justify-start space-x-2 text-gray-500 dark:text-gray-400 text-sm md:text-base cursor-not-allowed opacity-70">
                                 <i class="fab fa-github"></i>
                                 <span>Code</span>
-                            </a>
+                            </span>
                             <span
                                 class="flex items-center justify-center sm:justify-start space-x-2 text-gray-500 dark:text-gray-400 text-sm md:text-base">
                                 <i class="fas fa-clock"></i>
