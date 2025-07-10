@@ -1,0 +1,436 @@
+/* Technology Grid Styles */
+.technology-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+    margin-top: 1rem;
+    padding: 0 1rem;
+
+    @media (min-width: 640px) {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        max-width: 800px;
+        margin: 1rem auto 0;
+    }
+
+    @media (max-width: 639px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        padding: 0 0.5rem;
+    }
+
+    @media (min-width: 1024px) {
+        max-width: 900px;
+        gap: 2rem;
+    }
+}
+
+/* Technology Card Base Styles */
+.tech-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 140px;
+    height: 100px;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    &:hover {
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+        &::before {
+            opacity: 1;
+        }
+
+        .tech-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .tech-tooltip {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+    }
+
+    @media (min-width: 640px) {
+        max-width: 160px;
+        height: 120px;
+        padding: 1.25rem;
+    }
+
+    @media (max-width: 639px) {
+        max-width: none;
+        height: 90px;
+        padding: 0.75rem;
+    }
+
+    @media (min-width: 1024px) {
+        max-width: 180px;
+        height: 140px;
+        padding: 1.5rem;
+    }
+}
+
+/* Technology Icon Styles */
+.tech-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    svg {
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s ease;
+    }
+
+    @media (min-width: 640px) {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-bottom: 0.75rem;
+    }
+}
+
+/* Technology Name Styles */
+.tech-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.2;
+    transition: all 0.3s ease;
+
+    @media (min-width: 640px) {
+        font-size: 0.875rem;
+    }
+}
+
+/* Technology Tooltip Styles */
+.tech-tooltip {
+    position: absolute;
+    bottom: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -0.25rem;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 0.25rem solid transparent;
+        border-right: 0.25rem solid transparent;
+        border-bottom: 0.25rem solid rgba(0, 0, 0, 0.9);
+    }
+}
+
+/* Individual Technology Card Colors */
+.tech-angular {
+    background: linear-gradient(135deg, rgba(221, 0, 49, 0.1), rgba(221, 0, 49, 0.05));
+    border-color: rgba(221, 0, 49, 0.2);
+    color: #dd0031;
+
+    .dark & {
+        background: linear-gradient(135deg, rgba(221, 0, 49, 0.2), rgba(221, 0, 49, 0.1));
+        color: #ff4d6d;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, rgba(221, 0, 49, 0.2), rgba(221, 0, 49, 0.1));
+        border-color: rgba(221, 0, 49, 0.3);
+        box-shadow: 0 20px 25px -5px rgba(221, 0, 49, 0.2), 0 10px 10px -5px rgba(221, 0, 49, 0.1);
+    }
+}
+
+.tech-react {
+    background: linear-gradient(135deg, rgba(97, 218, 251, 0.1), rgba(97, 218, 251, 0.05));
+    border-color: rgba(97, 218, 251, 0.2);
+    color: #61dafb;
+
+    .dark & {
+        background: linear-gradient(135deg, rgba(97, 218, 251, 0.2), rgba(97, 218, 251, 0.1));
+        color: #61dafb;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, rgba(97, 218, 251, 0.2), rgba(97, 218, 251, 0.1));
+        border-color: rgba(97, 218, 251, 0.3);
+        box-shadow: 0 20px 25px -5px rgba(97, 218, 251, 0.2), 0 10px 10px -5px rgba(97, 218, 251, 0.1);
+    }
+}
+
+.tech-typescript {
+    background: linear-gradient(135deg, rgba(49, 120, 198, 0.1), rgba(49, 120, 198, 0.05));
+    border-color: rgba(49, 120, 198, 0.2);
+    color: #3178c6;
+
+    .dark & {
+        background: linear-gradient(135deg, rgba(49, 120, 198, 0.2), rgba(49, 120, 198, 0.1));
+        color: #4d9fff;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, rgba(49, 120, 198, 0.2), rgba(49, 120, 198, 0.1));
+        border-color: rgba(49, 120, 198, 0.3);
+        box-shadow: 0 20px 25px -5px rgba(49, 120, 198, 0.2), 0 10px 10px -5px rgba(49, 120, 198, 0.1);
+    }
+}
+
+.tech-java {
+    background: linear-gradient(135deg, rgba(237, 82, 53, 0.1), rgba(237, 82, 53, 0.05));
+    border-color: rgba(237, 82, 53, 0.2);
+    color: #ed5235;
+
+    .dark & {
+        background: linear-gradient(135deg, rgba(237, 82, 53, 0.2), rgba(237, 82, 53, 0.1));
+        color: #ff6b47;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, rgba(237, 82, 53, 0.2), rgba(237, 82, 53, 0.1));
+        border-color: rgba(237, 82, 53, 0.3);
+        box-shadow: 0 20px 25px -5px rgba(237, 82, 53, 0.2), 0 10px 10px -5px rgba(237, 82, 53, 0.1);
+    }
+}
+
+.tech-python {
+    background: linear-gradient(135deg, rgba(255, 212, 59, 0.1), rgba(255, 212, 59, 0.05));
+    border-color: rgba(255, 212, 59, 0.2);
+    color: #ffd43b;
+
+    .dark & {
+        background: linear-gradient(135deg, rgba(255, 212, 59, 0.2), rgba(255, 212, 59, 0.1));
+        color: #ffd43b;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, rgba(255, 212, 59, 0.2), rgba(255, 212, 59, 0.1));
+        border-color: rgba(255, 212, 59, 0.3);
+        box-shadow: 0 20px 25px -5px rgba(255, 212, 59, 0.2), 0 10px 10px -5px rgba(255, 212, 59, 0.1);
+    }
+}
+
+.tech-flutter {
+    background: linear-gradient(135deg, rgba(2, 165, 239, 0.1), rgba(2, 165, 239, 0.05));
+    border-color: rgba(2, 165, 239, 0.2);
+    color: #02a5ef;
+
+    .dark & {
+        background: linear-gradient(135deg, rgba(2, 165, 239, 0.2), rgba(2, 165, 239, 0.1));
+        color: #42c5ff;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, rgba(2, 165, 239, 0.2), rgba(2, 165, 239, 0.1));
+        border-color: rgba(2, 165, 239, 0.3);
+        box-shadow: 0 20px 25px -5px rgba(2, 165, 239, 0.2), 0 10px 10px -5px rgba(2, 165, 239, 0.1);
+    }
+}
+
+.tech-nodejs {
+    background: linear-gradient(135deg, rgba(104, 160, 99, 0.1), rgba(104, 160, 99, 0.05));
+    border-color: rgba(104, 160, 99, 0.2);
+    color: #68a063;
+
+    .dark & {
+        background: linear-gradient(135deg, rgba(104, 160, 99, 0.2), rgba(104, 160, 99, 0.1));
+        color: #8bc34a;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, rgba(104, 160, 99, 0.2), rgba(104, 160, 99, 0.1));
+        border-color: rgba(104, 160, 99, 0.3);
+        box-shadow: 0 20px 25px -5px rgba(104, 160, 99, 0.2), 0 10px 10px -5px rgba(104, 160, 99, 0.1);
+    }
+}
+
+.tech-mongodb {
+    background: linear-gradient(135deg, rgba(71, 162, 72, 0.1), rgba(71, 162, 72, 0.05));
+    border-color: rgba(71, 162, 72, 0.2);
+    color: #47a248;
+
+    .dark & {
+        background: linear-gradient(135deg, rgba(71, 162, 72, 0.2), rgba(71, 162, 72, 0.1));
+        color: #66bb6a;
+    }
+
+    &:hover {
+        background: linear-gradient(135deg, rgba(71, 162, 72, 0.2), rgba(71, 162, 72, 0.1));
+        border-color: rgba(71, 162, 72, 0.3);
+        box-shadow: 0 20px 25px -5px rgba(71, 162, 72, 0.2), 0 10px 10px -5px rgba(71, 162, 72, 0.1);
+    }
+}
+
+/* Animation delays for staggered effect */
+.tech-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.tech-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.tech-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.tech-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.tech-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.tech-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.tech-card:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.tech-card:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+/* Pulse animation for focus states */
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    50% {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+}
+
+.tech-card:focus-visible {
+    outline: 2px solid rgb(59, 130, 246);
+    outline-offset: 2px;
+    animation: pulse-glow 2s infinite;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .tech-card {
+        transition: none;
+
+        &:hover {
+            transform: none;
+            animation: none;
+        }
+
+        .tech-icon {
+            transition: none;
+
+            &:hover {
+                transform: none;
+            }
+        }
+    }
+
+    .tech-tooltip {
+        transition: none;
+    }
+}
+
+/* Dark mode specific adjustments */
+.dark {
+    .tech-tooltip {
+        background: rgba(255, 255, 255, 0.9);
+        color: rgba(0, 0, 0, 0.9);
+
+        &::before {
+            border-bottom-color: rgba(255, 255, 255, 0.9);
+        }
+    }
+}
+
+/* Section Title Enhancement */
+.border-t {
+    h4 {
+        position: relative;
+        margin-bottom: 2rem;
+
+        span {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            border-radius: 2px;
+        }
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

@@ -58,6 +58,17 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.closeSidebar();
   }
 
+  getNavDescription(section: string): string {
+    const descriptions: { [key: string]: string } = {
+      'home': 'Welcome & Introduction',
+      'about': 'My Story & Background', 
+      'skills': 'Technical Expertise',
+      'projects': 'Featured Work',
+      'contact': 'Get In Touch'
+    };
+    return descriptions[section] || '';
+  }
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const sections = ['home', 'about', 'skills', 'projects', 'contact'];

@@ -54,59 +54,97 @@
     </div>
 </nav>
 
-<!-- Mobile Sidebar -->
-<div class="fixed inset-0 z-40 md:hidden" [class.block]="isSidebarOpen" [class.hidden]="!isSidebarOpen">
-    <!-- Backdrop -->
-    <div class="fixed inset-0 bg-black bg-opacity-50 dark:bg-black dark:bg-opacity-70 transition-opacity"
-        [class.opacity-100]="isSidebarOpen" [class.opacity-0]="!isSidebarOpen" (click)="closeSidebar()">
-    </div>
+<!-- Enhanced Mobile Sidebar -->
+<div class="mobile-sidebar-overlay" [class.open]="isSidebarOpen">
+    <!-- Enhanced Backdrop with blur effect -->
+    <div class="mobile-backdrop" (click)="closeSidebar()"></div>
 
-    <!-- Sidebar -->
-    <div class="fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-900 shadow-xl dark:shadow-gray-800/50 transform transition-transform"
-        [class.translate-x-0]="isSidebarOpen" [class.translate-x-full]="!isSidebarOpen">
-
-        <!-- Sidebar Header -->
-        <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-            <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Menu</h2>
-            <button (click)="closeSidebar()"
-                class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                <i class="fas fa-times text-xl"></i>
-            </button>
+    <!-- Enhanced Sidebar -->
+    <div class="mobile-sidebar" [class.open]="isSidebarOpen">
+        <!-- Animated Background Pattern -->
+        <div class="sidebar-bg-pattern">
+            <div class="pattern-circle pattern-circle-1"></div>
+            <div class="pattern-circle pattern-circle-2"></div>
+            <div class="pattern-circle pattern-circle-3"></div>
         </div>
 
-        <nav class="mt-6">
-            <div class="px-4 space-y-2">
-                <a *ngFor="let section of ['home', 'about', 'skills', 'projects', 'contact']"
-                    (click)="scrollToSection(section)" [ngClass]="{
-                    'text-blue-600 dark:text-blue-400 font-semibold bg-blue-50 dark:bg-gray-800':
-                        activeSection === section,
-                    'text-gray-700 dark:text-gray-300': activeSection !== section
-                    }"
-                    class="flex items-center px-4 py-3 rounded-lg cursor-pointer transition-colors duration-300 group">
-                    <i class="fas fa-circle mr-3 text-xs" [ngClass]="{
-                        'text-blue-600 dark:text-blue-400': activeSection === section,
-                        'text-gray-500 dark:text-gray-400': activeSection !== section}">
-                    </i>
-                    {{ section.charAt(0).toUpperCase() + section.slice(1) }}
+        <!-- Sidebar Header with enhanced design -->
+        <div class="sidebar-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h2 class="sidebar-logo">YZ | Developer</h2>
+                    <p class="sidebar-subtitle">Explore my professional portfolio and navigate through my work.</p>
+                </div>
+                <button (click)="closeSidebar()" class="close-btn">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Enhanced Navigation -->
+        <nav class="sidebar-nav">
+            <div class="nav-items">
+                <a *ngFor="let section of ['home', 'about', 'skills', 'projects', 'contact']; let i = index"
+                    (click)="scrollToSection(section)" [class.active]="activeSection === section" class="nav-item"
+                    [style.animation-delay.ms]="(i + 1) * 100">
+
+                    <div class="nav-item-content">
+                        <div class="nav-icon">
+                            <i class="fas" [ngClass]="{
+                                'fa-home': section === 'home',
+                                'fa-user': section === 'about', 
+                                'fa-code': section === 'skills',
+                                'fa-folder-open': section === 'projects',
+                                'fa-envelope': section === 'contact'
+                            }"></i>
+                        </div>
+                        <div class="nav-text">
+                            <span class="nav-label">{{ section.charAt(0).toUpperCase() + section.slice(1) }}</span>
+                            <span class="nav-description" [innerHTML]="getNavDescription(section)"></span>
+                        </div>
+                        <div class="nav-arrow">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+
+                    <!-- Active indicator -->
+                    <div class="active-indicator"></div>
+
+                    <!-- Hover effect -->
+                    <div class="hover-effect"></div>
                 </a>
             </div>
         </nav>
 
-        <!-- Social Links -->
-        <div class="absolute bottom-8 left-4 right-4">
-            <div class="flex justify-center space-x-4">
-                <a href="#"
-                    class="text-gray-400 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    <i class="fab fa-github text-xl"></i>
-                </a>
-                <a href="#"
-                    class="text-gray-400 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    <i class="fab fa-linkedin text-xl"></i>
-                </a>
-                <a href="#"
-                    class="text-gray-400 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    <i class="fab fa-twitter text-xl"></i>
-                </a>
+        <!-- Enhanced Footer Section -->
+        <div class="sidebar-footer">
+            <!-- Social Links with enhanced design -->
+            <div class="social-section">
+                <h3 class="social-title">Connect with me</h3>
+                <div class="social-links">
+                    <a href="https://wa.me/96176557980?text=Dear%20Mr.%20Yazan,%0A%0AI%20hope%20this%20message%20finds%20you%20well.%20I%20am%20reaching%20out%20to%20explore%20a%20potential%20professional%20collaboration.%20Your%20expertise%20is%20greatly%20valued%2C%20and%20I%20would%20appreciate%20the%20opportunity%20to%20connect.%0A%0ARegards%2C%0A[Your%20Full%20Name]%0A[Your%20Position]%0A[Your%20Company]"
+                        class="social-link whatsapp-link" title="Whatsapp">
+                        <div class="social-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <span class="social-label">Whatsapp</span>
+                    </a>
+                    <a href="mailto:zohbiyazan@gmail.com?subject=Collaboration%20Request%20from%20a%20Professional%20Contact&body=Dear%20Mr.%20Zoabi,%0A%0AI%20hope%20this%20message%20finds%20you%20well.%20I%20am%20writing%20to%20explore%20the%20possibility%20of%20a%20professional%20collaboration%20with%20you.%20Your%20expertise%20and%20experience%20are%20highly%20valued%2C%20and%20I%20would%20be%20glad%20to%20discuss%20a%20potential%20partnership.%0A%0APlease%20let%20me%20know%20a%20suitable%20time%20to%20connect.%0A%0ABest%20regards%2C%0A[Your%20Full%20Name]%0A[Your%20Position]%0A[Your%20Company]"
+                        class="social-link email-link" title="Email">
+                        <div class="social-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <span class="social-label">Email</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Status indicator -->
+            <div class="status-section">
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span class="status-text">Available for projects</span>
+                </div>
             </div>
         </div>
     </div>
